@@ -65,4 +65,12 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "email is stored downcased" do
+    new_mail = "FOO@BAR.NET"
+    @user.email = new_mail
+    @user.save
+    @user.reload
+    assert_equal new_mail.downcase, @user.email
+  end
 end
