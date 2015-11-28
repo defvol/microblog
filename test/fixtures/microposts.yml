@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  user_id: 
+orange:
+  content: "I just ate an orange!"
+  created_at: <%= 10.minutes.ago %>
 
-two:
-  content: MyText
-  user_id: 
+sidekiq_emoji:
+  content: "Sidekiq.❨╯°□°❩╯︵┻━┻"
+  created_at: <%= 3.years.ago %>
+
+puppy_video:
+  content: "Adopt a puppy: http://openpuppies.com/"
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  content: "Big data will revolutionize the way we cook bacon"
+  created_at: <%= Time.zone.now %>
