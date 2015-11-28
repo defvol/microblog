@@ -20,4 +20,9 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
+  end
 end
