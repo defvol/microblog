@@ -34,4 +34,11 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path,       count: 0
     assert_select "a[href=?]", user_path(@user),  count: 0
   end
+
+  test "successful login will take me back to the referer page" do
+    get users_path
+    post login_path, session: { email: @user.email, password: 'password' }
+    assert is_logged_in?
+    assert_redirected_to users_path
+  end
 end
